@@ -1,0 +1,163 @@
+﻿@using PagedList.Mvc;
+@model PagedList.IPagedList<Website_sell_books.Models.Sach>
+
+
+@{
+    Layout = "~/Views/Layout/NguoidungLayout.cshtml";
+}
+<style>
+    .cart {
+        padding: 8px;
+        margin: 8px;
+    }
+
+    .bt_cart {
+        border-radius: 20px;
+        border: solid 1px black;
+        padding: 8px;
+        background-color: white;
+        margin: 12px;
+    }
+
+        .bt_cart:hover {
+            color: #fff;
+            background-color: #649b3c;
+            border: none;
+        }
+</style>
+
+<div id="tg-twocolumns" class="tg-twocolumns">
+    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-9 pull-right">
+        <div id="tg-content" class="tg-content">
+            <div class="tg-products">
+
+                <div class="tg-productgrid">
+                    @* Thanh công cụ sắp xếp *@
+                    <div class="tg-sectionhead">
+                        <h2>Sách mới ra mắt</h2>
+                    </div>
+                    <div class="tg-refinesearch">
+                        <form class="tg-formtheme tg-formsortshoitems">
+                            <fieldset>
+                                <div class="form-group">
+                                    <label>sort by:</label>
+                                    <span class="tg-select">
+                                        <select>
+                                            <option>name</option>
+                                            <option>name</option>
+                                            <option>name</option>
+                                        </select>
+                                    </span>
+                                </div>
+                                
+                            </fieldset>
+                        </form>
+                    </div>
+
+
+                    @*View hiển thị danh sách sách có trong database *@
+
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
+                            <div class="tg-postbook">
+                                <figure class="tg-featureimg">
+                                    <div class="tg-bookimg">
+                                        <a href="@Url.Action("XemChiTietSach", new { @MaSach = item.MaSach} )">
+                                            <div class="tg-frontcover"><img src="@Url.Content("~/wwwroot/images/books/"+ item.AnhBia)" alt="image description"></div>
+                                            <div class="tg-backcover"><img src="@Url.Content("~/wwwroot/images/books/"+ item.AnhBia)" alt="image description"></div>
+                                        </a>
+                                    </div>
+                                    <a class="tg-btnaddtowishlist" href="javascript:void(0);">
+                                        <i class="icon-heart"></i>
+                                        <span>Thêm vào giỏ</span>
+                                    </a>
+                                </figure>
+                                <div class="tg-postbookcontent">
+                                    <ul class="tg-bookscategories">
+                                        <li>@*<a href="javascript:void(0);">@item.ChuDe.TenChuDe</a>*@</li>
+                                    </ul>
+                                    <div class="tg-themetagbox"><span class="tg-themetag">sale</span></div>
+                                    <div class="tg-booktitle">
+                                        @if (item.TenSach.Length < 15)
+                                        {
+                                            <h3><a href="javascript:void(0);">@item.TenSach</a></h3>
+
+                                        }
+                                        else
+                                        {
+                                            <h3><a href="javascript:void(0);">@item.TenSach.Substring(0, 15)...</a></h3>
+                                        }
+                                    </div>
+                                    @*<span class="tg-bookwriter">Tác giả: <a href="javascript:void(0);">@item.MaNXB</a></span>*@
+                                    <span class="tg-stars" style="margin-bottom:8px"><span></span></span>
+                                    <span class="tg-bookprice">
+                                        <ins>@String.Format("{0:0,0}", item.GiaBan)  VNĐ</ins>
+                                        <del>@String.Format("{0:0,0}", item.GiaBan+1000) VNĐ</del>
+                                    </span>
+
+
+                                    @using (Html.BeginForm("ThemGioHang", "GioHang", new { @MaSach = item.MaSach, @strUrl = Request.Url.ToString() }))
+                                    {
+                                        <div class="cart">
+                                            <i class="fa fa-shopping-basket"></i>
+                                            <input type="submit" value="Thêm vào giỏ" class="bt_cart" />
+                                        </div>
+
+                                    }
+
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3 pull-left">
+        <aside id="tg-sidebar" class="tg-sidebar">
+
+            <div class="tg-widget tg-catagories">
+                <div class="tg-widgettitle">
+                    <h3>Danh sách thể loại</h3>
+                </div>
+                <div class="tg-widgetcontent">
+                    <ul>
+                        <li><a href="javascript:void(0);"><span>Art &amp; Photography</span><em>28245</em></a></li>
+                        <li><a href="javascript:void(0);"><span>Biography</span><em>4856</em></a></li>
+                        <li><a href="javascript:void(0);"><span>Children’s Book</span><em>8654</em></a></li>
+                        <li><a href="javascript:void(0);"><span>Craft &amp; Hobbies</span><em>6247</em></a></li>
+                        <li><a href="javascript:void(0);"><span>Crime &amp; Thriller</span><em>888654</em></a></li>
+                        <li><a href="javascript:void(0);"><span>Fantasy &amp; Horror</span><em>873144</em></a></li>
+                        <li><a href="javascript:void(0);"><span>Fiction</span><em>18465</em></a></li>
+                        <li><a href="javascript:void(0);"><span>Fod &amp; Drink</span><em>3148</em></a></li>
+                        <li><a href="javascript:void(0);"><span>Graphic, Anime &amp; Manga</span><em>77531</em></a></li>
+                        <li><a href="javascript:void(0);"><span>Science Fiction</span><em>9247</em></a></li>
+                        <li><a href="javascript:void(0);"><span>View All</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="tg-widget tg-widgettrending">
+                <div class="tg-widgettitle">
+                    <h3>XU HƯỚNG</h3>
+                </div>
+                @* Sử dụng partial để chia nhỏ file layout ra=> Dễ đọc code, dễ bảo trì và update *@
+                @* Những sách đang nổi sẽ được hiển thị ở file riêng *@
+                @*@Html.Partial("~/Views/Home/_SachXuHuongPartial.cshtml")*@
+                @Html.Action("_SachXuHuongPartial", "Sach")
+            </div>
+
+            <div class="tg-widget tg-widgetblogers">
+                <div class="tg-widgettitle">
+                    <h3>Tác giả nổi tiếng</h3>
+                </div>
+                @Html.Action("_TacGiaNoiTiengPartial", "TacGia")
+            </div>
+        </aside>
+    </div>
+</div>
+<br />
+@*Trang @(Model.PageCount< Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount*@
+@Html.PagedListPager(Model,page => Url.Action("DSSach", new {page}))
+

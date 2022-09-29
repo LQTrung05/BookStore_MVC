@@ -1,0 +1,20 @@
+﻿
+<div class="tg-widgetcontent">
+
+    <ul>
+        @foreach (var item in Model)
+        {
+            
+            <li>
+                <div class="tg-author">
+                    <figure><a href="javascript:void(0);"><img src="~/wwwroot/images/author/imag-01.jpg" alt="image description"></a></figure>
+                    <div class="tg-authorcontent">
+                        <h2><a href="javascript:void(0);">@item.TenTacGia</a></h2>
+                        <span>Đếm số cuốn sách của tác giả </span>
+                    </div>
+                </div>
+            </li>
+        }
+
+    </ul>
+</div>

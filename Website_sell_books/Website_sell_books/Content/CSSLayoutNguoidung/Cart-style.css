@@ -1,0 +1,133 @@
+﻿/* shopping cart page */
+.goods-data {
+	background: #fff;
+	padding: 20px;
+	margin-bottom: 20px;
+	overflow-x: auto;
+	margin-right: 10px;
+}
+.goods-data table,
+.checkout-page table {
+	width: 100%;
+	font: 300 13px 'Open Sans', sans-serif;
+}
+.goods-data th {
+	font: 16px "PT Sans Narrow", sans-serif;
+	text-transform: uppercase;
+	border-bottom: solid 1px #ecebeb;
+	padding: 8px;
+}
+.goods-data td
+{
+	vertical-align: top;
+	padding: 8px;
+	border-bottom: solid 1px #ecebeb;
+}
+
+
+.goods-page-price strong, 
+.goods-page-total strong,
+.checkout-price strong,
+.checkout-total strong {
+	color: #e84d1c;
+	font-size: 21px;
+	font-weight: normal;
+}
+.goods-page-price strong span,
+.goods-page-total strong span,
+.checkout-price strong span,
+.checkout-total strong span  {
+	font-size: 17px;
+}
+
+.goods-data h3 {
+	font: 300 14px 'Open Sans', sans-serif;
+	text-transform: inherit;
+	padding: 0;
+	margin: 0 0 5px;
+}
+.goods-data p {
+	margin-bottom: 2px;
+}
+.goods-data a {
+	color: #e6400c;
+}
+.goods-page-description em,
+.checkout-description em {
+	display: block;
+	font-style: normal;
+}
+.goods-page .btn-default {
+	float: left;
+	border: 1px solid #5ea8dc;
+	background: #5ea8dc;
+	color: #fff;
+}
+.goods-page .btn-default:hover {
+	border: 1px solid #408cc2;
+	background: #408cc2;
+}
+.goods-page .btn-primary {
+	float: right;
+	margin-right: 10px;
+}
+
+.goods-data .del-goods,
+.goods-data .add-goods {
+	margin-top: 4px;
+}
+
+.shopping-total,
+.checkout-total-block {
+	width: 300px;
+	float: right;
+	padding-top: 9px;
+	color: #3e4d5c;
+}
+.checkout-total-block {
+	margin-bottom: 20px;
+}
+.shopping-total ul,
+.checkout-total-block ul {
+	margin: 0;
+	padding: 0;
+}
+.shopping-total li,
+.checkout-total-block li {
+	border-bottom: solid 1px #ecebeb;
+	width: 100%;
+	overflow: hidden;
+	padding: 9px 0;
+	list-style:none;
+}
+.shopping-total li:last-child,
+.checkout-total-block li:last-child {
+	border: none;
+}
+.shopping-total em,
+.checkout-total-block em {
+	font: 18px 'PT Sans Narrow', sans-serif;
+	float: left;
+	text-transform: none;
+	position: relative;
+	top: 2px;
+}
+.shopping-total strong,
+.checkout-total-block strong {
+	color: #e84d1c;
+	font: 21px 'PT Sans Narrow', sans-serif;
+	font-weight: normal;
+	float: right;
+}
+.shopping-total strong span,
+.checkout-total-block strong span {
+	font-size: 17px;
+}
+.shopping-total-price,
+.checkout-total-price {
+	font-weight: bold;
+}
+.shopping-total-price strong,
+.checkout-total-price strong {
+	font-weight: bold;
+}

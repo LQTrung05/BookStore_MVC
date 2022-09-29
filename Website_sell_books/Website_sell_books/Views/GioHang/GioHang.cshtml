@@ -1,0 +1,103 @@
+﻿
+@{
+    ViewBag.Title = "GioHang";
+    Layout = "~/Views/Layout/NguoidungLayout.cshtml";
+}
+<div class="goods-page">
+    <div class="goods-data clearfix">
+        <div class="table-wrapper-responsive">
+            <table summary="Shopping cart">
+                <tr>
+                    <th class="goods-page-image" width="15%">Ảnh</th>
+                    <th class="goods-page-description" width="35%">Mô tả</th>
+                    <th class="goods-page-quantity" width="15%">Số lượng</th>
+                    <th class="goods-page-price" width="15%">Đơn giá</th>
+                    <th class="goods-page-total" width="20%" ">Tổng tiền</th>
+                    <th></th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="goods-page-image">
+                            <a href="javascript:;"><img src="@Url.Content("~/wwwroot/images/books/" + item.AnhBia)" alt="Berry Lace Dress"></a>
+                        </td>
+                        <td class="goods-page-description">
+                            <h3><a href="javascript:;">@item.TenSach</a></h3>
+                            <p><strong>Nhà xuất bản:</strong>@item.TenNXB</p>
+                            <em>@item.MoTa</em>
+                        </td>
+
+                        @using (Html.BeginForm("CapNhatSLSach", "GioHang", new { @MaSach = item.MaSach }))
+                        {
+                            <td class="goods-page-quantity">
+                                <div class="product-quantity">
+                                    <input id="product-quantity" type="number" min="1" name="txtSoLuong" value="@item.SoLuong">
+                                </div>
+                            </td>
+                            <td class="goods-page-price">
+                                <strong>@String.Format("{0:0,0}", item.GiaBan)</strong>
+                            </td>
+                            <td class="goods-page-total">
+                                <strong>@String.Format("{0:0,0}", item.ThanhTien)</strong>
+                            </td>
+                            <td>
+                                <input type="submit" value="Cập nhật" />
+                                <br />
+                                @Html.ActionLink("Xóa", "XoaSachGH", new { @MaSach = item.MaSach })
+
+                            </td>
+                        }
+
+
+                    </tr>
+
+                }
+            </table>
+        </div>
+
+        <div class="shopping-total" style="width: 300px">
+            <ul>
+                <li>
+                    <em style="text-transform: none">Tiền sách:</em>
+                    <strong class="price">@String.Format("{0:0,0}", ViewBag.TongTien) VNĐ</strong>
+                </li>
+                <li>
+                    <em style="text-transform: none">Phí vận chuyển:</em>
+                    @if (ViewBag.TongTien > 200000)
+                    {
+                        <strong class="price">0 VND </strong>
+                    }
+                    else
+                    {
+                        <strong class="price">30,000 VND</strong>
+                    }
+                </li>
+                <li>
+                    <em style="text-transform: none">Tổng tiền:</em>
+                    <strong class="price">
+                        @{
+                            if (ViewBag.TongTien > 200000)
+                            {
+                                <strong class="price">@String.Format("{0:0,0}", ViewBag.TongTien)</strong>
+                            }
+                            else
+                            {
+                                var temp1 = ViewBag.TongTien + 30000;
+                                <strong class="price">@String.Format("{0:0,0}", temp1) VNĐ </strong>
+                            }
+                        }
+                    </strong>
+
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+    <button class="btn btn-default" type="submit">Tiếp tục mua sắm <i class="fa fa-shopping-cart"></i></button>
+    @using (Html.BeginForm("DatHang", "GioHang"))
+    {
+        <button class="btn btn-primary" type="submit">Đặt hàng <i class="fa fa-check"></i></button>
+
+    }
+</div>
