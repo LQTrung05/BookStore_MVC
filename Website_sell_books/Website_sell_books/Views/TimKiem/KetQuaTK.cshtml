@@ -34,9 +34,9 @@
                 <div class="tg-productgrid">
                     @* Thanh công cụ sắp xếp *@
                     <div class="tg-sectionhead">
-                        <h2>Sách mới ra mắt</h2>
-                    </div>
+                        <h2>@ViewBag.TB</h2>
 
+                    </div>
 
                     @*View hiển thị danh sách sách có trong database *@
 
@@ -76,7 +76,7 @@
                                     <span class="tg-stars" style="margin-bottom:8px"><span></span></span>
                                     <span class="tg-bookprice">
                                         <ins>@String.Format("{0:0,0}", item.GiaBan)  VNĐ</ins>
-                                        <del>@String.Format("{0:0,0}", item.GiaBan+1000) VNĐ</del>
+                                        <del>@String.Format("{0:0,0}", item.GiaBan + 1000) VNĐ</del>
                                     </span>
 
 
@@ -142,5 +142,5 @@
 </div>
 <br />
 @*Trang @(Model.PageCount< Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount*@
-@Html.PagedListPager(Model,page => Url.Action("DSSach", new {page}))
+@Html.PagedListPager(Model, page => Url.Action("KetQuaTK", new { page = page, @sTuKhoa = ViewBag.TuKhoa }))
 

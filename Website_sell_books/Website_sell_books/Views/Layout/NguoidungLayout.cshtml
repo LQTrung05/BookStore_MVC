@@ -72,7 +72,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                            <strong class="tg-logo"><a href="index-2.html"><img src="~/wwwroot/images/logo.png" alt="company name here"></a></strong>
+                            <strong class="tg-logo"><a href="@Url.Action("DSSach","Sach")"><img src="~/wwwroot/images/logo.png" alt="company name here"></a></strong>
                             <!-- Giỏ hàng -->
                             <div class="tg-wishlistandcart">
                                 <div class="dropdown tg-themedropdown tg-minicartdropdown">
@@ -91,26 +91,7 @@
                                                     <h6><a href="javascript:void(0);">$ 12.15</a></h6>
                                                 </div>
                                             </div>
-                                            <div class="tg-minicarproduct">
-                                                <figure>
-                                                    <img src="images/products/img-02.jpg" alt="image description">
-
-                                                </figure>
-                                                <div class="tg-minicarproductdata">
-                                                    <h5><a href="javascript:void(0);">Bring Me To Light</a></h5>
-                                                    <h6><a href="javascript:void(0);">$ 12.15</a></h6>
-                                                </div>
-                                            </div>
-                                            <div class="tg-minicarproduct">
-                                                <figure>
-                                                    <img src="images/products/img-03.jpg" alt="image description">
-
-                                                </figure>
-                                                <div class="tg-minicarproductdata">
-                                                    <h5><a href="javascript:void(0);">Have Faith In Your Soul</a></h5>
-                                                    <h6><a href="javascript:void(0);">$ 12.15</a></h6>
-                                                </div>
-                                            </div>
+                                            
                                         </div>
                                         <div class="tg-minicartfoot">
                                             <a class="tg-btnemptycart" href="javascript:void(0);">
@@ -128,12 +109,15 @@
                             </div>
                             <!-- Form tìm kiếm -->
                             <div class="tg-searchbox">
-                                <form class="tg-formtheme tg-formsearch">
+                                @using (Html.BeginForm("KetQuaTK", "TimKiem", FormMethod.Post, htmlAttributes: new { @class = "tg-formtheme tg-formsearch" }))
+                                {
                                     <fieldset>
-                                        <input type="text" name="search" class="typeahead form-control" placeholder="Tìm kiếm theo tên sách, tên tác giả,..." />
+                                        <input type="text" name="txttimkiem" class="typeahead form-control" placeholder="Tìm kiếm theo tên sách, tên tác giả,..." />
                                         <button type="submit"><i class="icon-magnifier"></i></button>
                                     </fieldset>
-                                </form>
+                                }
+
+
                             </div>
                         
                         </div>

@@ -138,9 +138,10 @@
     <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NguoiDungController.cs" />
-    <Compile Include="Controllers\QuanLySanPhamController.cs" />
+    <Compile Include="Controllers\QuanLySachController.cs" />
     <Compile Include="Controllers\SachController.cs" />
     <Compile Include="Controllers\TacGiaController.cs" />
+    <Compile Include="Controllers\TimKiemController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -299,6 +300,7 @@
     <Content Include="wwwroot\images\books\000039.jpg" />
     <Content Include="wwwroot\images\books\000040.jpg" />
     <Content Include="wwwroot\images\books\bookpattren.png" />
+    <Content Include="wwwroot\images\books\00000.jpg" />
     <Content Include="wwwroot\images\comingsoon-bg.jpg" />
     <Content Include="wwwroot\images\flogo.png" />
     <Content Include="wwwroot\images\img-01.jpg" />
@@ -383,8 +385,12 @@
     <Content Include="Views\NguoiDung\DangKy.cshtml" />
     <Content Include="Views\NguoiDung\DangNhap.cshtml" />
     <Content Include="Views\Layout\AdminLayout.cshtml" />
-    <Content Include="Views\QuanLySanPham\Index.cshtml" />
-    <Content Include="Views\QuanLySanPham\Create.cshtml" />
+    <Content Include="Views\QuanLySach\Create.cshtml" />
+    <Content Include="Views\QuanLySach\Delete.cshtml" />
+    <Content Include="Views\QuanLySach\Details.cshtml" />
+    <Content Include="Views\QuanLySach\Edit.cshtml" />
+    <Content Include="Views\QuanLySach\Index.cshtml" />
+    <Content Include="Views\TimKiem\KetQuaTK.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
